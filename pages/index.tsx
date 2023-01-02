@@ -1,6 +1,21 @@
+import {GetStaticProps, InferGetStaticPropsType} from 'next';
 import Head from 'next/head';
+import {BLOG_DIR, getSlugs} from '../lib/md';
+import Link from 'next/link';
 
-export default function Home({}) {
+export const getStaticProps: GetStaticProps = async (context) => {
+  const slugs = getSlugs(BLOG_DIR);
+
+  return {
+    props: {
+      slugs,
+    },
+  };
+};
+
+export default function Home({
+  slugs,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
       <Head>
@@ -10,7 +25,15 @@ export default function Home({}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="font-inter"></main>
+      <main className="font-inter">
+        <ul role="list">
+          {slugs.map((slug: string, idx: number) => (
+            <li key={idx} role="listitem" className="cursor-pointer">
+              <Link href={`/posts/${slug}`}>{slug}</Link>
+            </li>
+          ))}
+        </ul>
+      </main>
     </>
   );
 }
