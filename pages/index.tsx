@@ -1,20 +1,6 @@
 import Head from 'next/head';
-import {POST_DIR, getSlugs} from '../lib/mdx';
-import {GetStaticProps, InferGetStaticPropsType} from 'next';
 
-export const getStaticProps: GetStaticProps = async (context) => {
-  const slugs = getSlugs(POST_DIR);
-
-  return {
-    props: {
-      slugs,
-    },
-  };
-};
-
-export default function Home({
-  slugs,
-}: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function Home({}) {
   return (
     <>
       <Head>
@@ -23,13 +9,8 @@ export default function Home({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="font-inter">
-        <ul>
-          {slugs.map((slug: string) => (
-            <li key={slug}>{slug}</li>
-          ))}
-        </ul>
-      </main>
+
+      <main className="font-inter"></main>
     </>
   );
 }

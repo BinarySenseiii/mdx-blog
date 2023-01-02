@@ -6,7 +6,7 @@ tags:
   - arrays
   - reduce
 date: 2020-05-09
-excerpt: The reduce function of an array is one of the most versatile functions in JavaScript. With it you can accomplish a lot of the functions from array and math objects.
+summary: The reduce function of an array is one of the most versatile functions in JavaScript. With it you can accomplish a lot of the functions from array and math objects.
 ---
 
 The [reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) function of an `Array` is one of the most versatile functions in JavaScript. With it you can accomplish a lot of the functions from the [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) and [Math](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math) objects. It's job is to start with an array, and reduce those elements into some other type of data... which sounds vague, but you could use it to convert from an array to an object, an array to another array, an array to a number or an array to a boolean. Understanding how it works opens up a world of possibilities.
@@ -57,9 +57,9 @@ The data we are starting with is an array of objects which represent people:
 
 ```js
 const people = [
-  { id: "1", name: "Leigh", age: 35 },
-  { id: "2", name: "Jenny", age: 30 },
-  { id: "3", name: "Heather", age: 28 },
+  {id: '1', name: 'Leigh', age: 35},
+  {id: '2', name: 'Jenny', age: 30},
+  {id: '3', name: 'Heather', age: 28},
 ];
 ```
 
@@ -91,7 +91,7 @@ This is a technique I use all the time when I have an array of some object with 
 
 ```js
 result = people.reduce((acc, person) => {
-  return { ...acc, [person.id]: person };
+  return {...acc, [person.id]: person};
 }, {});
 ```
 
@@ -128,7 +128,7 @@ The reduce callback function when immitating `Array.prototype.find()` contains t
 ```js
 result = people.reduce((acc, person) => {
   if (acc !== null) return acc;
-  if (person.name === "Leigh") return person;
+  if (person.name === 'Leigh') return person;
   return null;
 }, null);
 ```
@@ -161,14 +161,14 @@ As we've seen in the "Array to Object" example above, we can convert an array to
 
 ```js
 const orders = [
-  { id: "1", status: "pending" },
-  { id: "2", status: "pending" },
-  { id: "3", status: "cancelled" },
-  { id: "4", status: "shipped" },
+  {id: '1', status: 'pending'},
+  {id: '2', status: 'pending'},
+  {id: '3', status: 'cancelled'},
+  {id: '4', status: 'shipped'},
 ];
 
 result = orders.reduce((acc, order) => {
-  return { ...acc, [order.status]: (acc[order.status] || 0) + 1 };
+  return {...acc, [order.status]: (acc[order.status] || 0) + 1};
 }, {});
 ```
 
@@ -180,9 +180,9 @@ If the current element is an `Array`, it means we must reduce it until we arrive
 
 ```js
 const folders = [
-  "index.js",
-  ["flatten.js", "map.js"],
-  ["any.js", ["all.js", "count.js"]],
+  'index.js',
+  ['flatten.js', 'map.js'],
+  ['any.js', ['all.js', 'count.js']],
 ];
 
 function flatten(acc, element) {
