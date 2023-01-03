@@ -1,6 +1,6 @@
 import {GetStaticPaths, GetStaticProps, InferGetStaticPropsType} from 'next';
 import React from 'react';
-import {BLOG_DIR, getSlugs} from '../../lib/md';
+import {BLOG_DIR, getMetaData} from '../../lib/md';
 import {ParsedUrlQuery} from 'querystring';
 import Head from 'next/head';
 
@@ -22,10 +22,10 @@ const PostDetailPage: React.FC = ({
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const slugs = getSlugs(BLOG_DIR);
+  const metaData = getMetaData(BLOG_DIR);
 
   return {
-    paths: slugs.map((slug) => ({params: {slug}})),
+    paths: metaData.map((data) => ({params: {slug: data.slug}})),
     fallback: 'blocking',
   };
 };

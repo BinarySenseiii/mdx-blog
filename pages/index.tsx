@@ -1,20 +1,21 @@
 import {GetStaticProps, InferGetStaticPropsType} from 'next';
 import Head from 'next/head';
-import {BLOG_DIR, getSlugs} from '../lib/md';
+import {BLOG_DIR, getMetaData} from '../lib/md';
 import Link from 'next/link';
+import {IFrontMatter} from '../types/blog-post';
 
-export const getStaticProps: GetStaticProps = async (context) => {
-  const slugs = getSlugs(BLOG_DIR);
+export const getStaticProps: GetStaticProps = async () => {
+  const metaData = getMetaData(BLOG_DIR);
 
   return {
     props: {
-      slugs,
+      metaData,
     },
   };
 };
 
 export default function Home({
-  slugs,
+  metaData,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
@@ -27,9 +28,12 @@ export default function Home({
 
       <main className="font-inter">
         <ul role="list">
-          {slugs.map((slug: string, idx: number) => (
+          {metaData.map((data: IFrontMatter, idx: number) => (
             <li key={idx} role="listitem" className="cursor-pointer">
-              <Link href={`/posts/${slug}`}>{slug}</Link>
+              <Link href={`/posts/${data.slug}`}>{data.title}</Link>
+              <i>
+                <strong>{data.date}</strong>
+              </i>
             </li>
           ))}
         </ul>
