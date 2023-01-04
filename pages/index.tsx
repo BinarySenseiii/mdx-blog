@@ -1,8 +1,8 @@
-import {GetStaticProps, InferGetStaticPropsType} from 'next';
+import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import Head from 'next/head';
-import {BLOG_DIR, getMetaData} from '../lib/md';
+import { BLOG_DIR, getMetaData } from '../lib/md';
 import Link from 'next/link';
-import {IFrontMatter} from '../types/blog-post';
+import { IFrontMatter } from '../types/blog-post';
 
 export const getStaticProps: GetStaticProps = async () => {
   const metaData = getMetaData(BLOG_DIR);
@@ -26,7 +26,7 @@ export default function Home({
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="font-inter">
+      <main className="font-inter dark:bg-black">
         <ul role="list">
           {metaData.map((data: IFrontMatter, idx: number) => (
             <li key={idx} role="listitem" className="cursor-pointer">
