@@ -3,19 +3,20 @@ import Head from 'next/head';
 import { BLOG_DIR, getMetaData } from '../lib/md';
 import Link from 'next/link';
 import { IFrontMatter } from '../types/blog-post';
+import PostItem from '../components/PostItem';
 
 export const getStaticProps: GetStaticProps = async () => {
-  const metaData = getMetaData(BLOG_DIR);
+  const posts = getMetaData(BLOG_DIR);
 
   return {
     props: {
-      metaData,
+      posts,
     },
   };
 };
 
 export default function Home({
-  metaData,
+  posts,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
@@ -26,18 +27,12 @@ export default function Home({
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="font-inter dark:bg-black">
-        <ul role="list">
-          {metaData.map((data: IFrontMatter, idx: number) => (
-            <li key={idx} role="listitem" className="cursor-pointer">
-              <Link href={`/posts/${data.slug}`}>{data.title}</Link>
-              <i>
-                <strong>{data.date}</strong>
-              </i>
-            </li>
-          ))}
-        </ul>
-      </main>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+      <ul role="list">
+        {posts.map((post: IFrontMatter) => (
+          <PostItem key={post.slug} {...post} />
+        ))}
+      </ul>
     </>
   );
 }

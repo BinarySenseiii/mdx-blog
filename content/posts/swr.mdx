@@ -40,7 +40,7 @@ Rather than having to pass the `fetcher` function, and any other config options 
 ```jsx
 export default function App() {
   return (
-    <SWRConfig value={{fetcher}}>
+    <SWRConfig value={{ fetcher }}>
       <Crimes />
     </SWRConfig>
   );
@@ -59,7 +59,7 @@ function Crimes() {
   // render display component
 }
 
-function DisplayCrimes({crimes}) {
+function DisplayCrimes({ crimes }) {
   // only have to deal with displaying data
 }
 ```
@@ -76,7 +76,7 @@ After dealing with error states and lack of data (loading state), we are now rea
 function Crimes() {
   const url =
     'https://data.police.uk/api/crimes-street/all-crime?lat=52.629729&lng=-1.131592&date=2019-10';
-  const {data, error} = useSWR(url);
+  const { data, error } = useSWR(url);
 
   if (error) return <div>Error...</div>;
   if (!data) return <div>Loading...</div>;
@@ -113,7 +113,7 @@ Displaying the data really has nothing to do with SWR at this point, but that is
 We will keep track of a `filterCategory` if the user wants only a subset of all the crimes, producing a filtered list of crimes using the [array filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) function.
 
 ```jsx
-function DisplayCrimes({crimes, categories}) {
+function DisplayCrimes({ crimes, categories }) {
   const [filterCategory, setFilterCategory] = React.useState(null);
   const filteredCrimes = filterCategory
     ? crimes.filter((crime) => crime.category === filterCategory)
