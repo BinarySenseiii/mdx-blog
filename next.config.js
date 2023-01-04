@@ -2,6 +2,17 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+        pathname: '/delba/**',
+      },
+      { hostname: 'api.microlink.io' },
+      { hostname: 'pbs.twimg.com' },
+    ],
+  },
 };
 
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
