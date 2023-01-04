@@ -15,7 +15,7 @@ const hubot = localFont({
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
-      <NextNProgress color="#7c09ff" />
+      <NextNProgress color="#c06695" />
       <main className={cx('font-sans', hubot.variable)}>
         <Layout>
           <Component {...pageProps} />

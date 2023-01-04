@@ -30,7 +30,7 @@ export default function Home({
 
           <div>
             <h1 className="text-3xl font-medium text-rose-100/80 sm:text-4xl">
-              Delba
+              Faisal Tariq
             </h1>
             <h2 className="align-middle text-lg leading-6 text-rose-100/50">
               <span className="hidden sm:inline">Developer Experience</span>
@@ -42,7 +42,7 @@ export default function Home({
                 <span className="mr-px align-middle">
                   <span className="-my-2 inline-block text-[24px]">▲</span>
                 </span>
-                Vercel
+                ColossalBit.io
               </span>
             </h2>
           </div>

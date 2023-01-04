@@ -1,5 +1,6 @@
 import cx from 'clsx';
 import Image from 'next/image';
+import profilePic from '../assets/profile_pic.jpg';
 
 export const ProfileImage = ({
   size = 'large',
@@ -29,13 +30,14 @@ export const ProfileImage = ({
         })}
       >
         <Image
-          src="https://res.cloudinary.com/delba/image/twitter_name/c_thumb,g_face,h_380,w_380,q_100/delba_oliveira.jpg"
-          alt="A photo of Delba"
+          src={profilePic}
+          alt="A photo of Faisal Tariq"
           quality={95}
           priority={true}
           className="rounded-full"
           width={size === 'small' ? 36 : 64}
           height={size === 'small' ? 36 : 64}
+          placeholder="blur"
         />
       </div>
     </div>
