@@ -25,7 +25,7 @@ export const ProfileImage = ({
       <div
         className={cx('rounded-full p-px', {
           'h-[36px] w-[36px]': size === 'small',
-          'h-[64px] w-[64px]': size === 'large',
+          'h-[84px] w-[84px]': size === 'large',
           'transition duration-300 group-hover:scale-105': isInteractive,
         })}
       >
@@ -35,8 +35,8 @@ export const ProfileImage = ({
           quality={95}
           priority={true}
           className="rounded-full"
-          width={size === 'small' ? 36 : 64}
-          height={size === 'small' ? 36 : 64}
+          width={size === 'small' ? 36 : 84}
+          height={size === 'small' ? 36 : 84}
           placeholder="blur"
         />
       </div>

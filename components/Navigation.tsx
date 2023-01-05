@@ -25,7 +25,7 @@ export const Navigation = ({ currentFilters }: { currentFilters?: any }) => {
               <VideoCameraIcon className="w-[18px] transform text-rose-100 transition delay-100 duration-500 ease-out group-hover:scale-110" />
             </div>
           </div>
-          <div>Videos</div>
+          <div>Blogs</div>
         </div>
       </Link>
 
@@ -44,11 +44,11 @@ export const Navigation = ({ currentFilters }: { currentFilters?: any }) => {
               <AnnotationIcon className="w-[18px] transform text-rose-100 transition delay-100 duration-500 ease-out group-hover:scale-110" />
             </div>
           </div>
-          <div>Posts</div>
+          <div>Projects</div>
         </div>
       </Link>
 
-      <a
+      {/* <a
         className={cx('group', FOCUS_VISIBLE_OUTLINE)}
         href="https://twitter.com/delba_oliveira"
       >
@@ -60,11 +60,13 @@ export const Navigation = ({ currentFilters }: { currentFilters?: any }) => {
           </div>
           <div>Twitter</div>
         </div>
-      </a>
+      </a> */}
 
       <a
         className={cx('group', FOCUS_VISIBLE_OUTLINE)}
-        href="https://youtube.com/delba"
+        href="https://www.youtube.com/@codewithtyson7878"
+        target="_blank"
+        rel="noreferrer"
       >
         <div className="sm:flex sm:items-center sm:space-x-2">
           <div className="mb-1.5 flex justify-center sm:mb-0 sm:block">
