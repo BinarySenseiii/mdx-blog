@@ -8,6 +8,7 @@ import { Navigation } from '../components/Navigation';
 import { ProfileImage } from '../components/ProfileImage';
 import cx from 'clsx';
 import { seo } from '../lib/seo';
+import { BlogPostPreview } from '../components/BlogPostPreview';
 
 export const getStaticProps: GetStaticProps = async () => {
   const posts = getMetaData(BLOG_DIR);
@@ -58,7 +59,7 @@ export default function Home({
       </div>
       <div className="grid grid-cols-1 md:grid-cols-1 gap-4">
         {posts.map((post: IFrontMatter) => (
-          <PostItem key={post.slug} {...post} />
+          <BlogPostPreview key={post.slug} {...post} />
         ))}
       </div>
     </>
