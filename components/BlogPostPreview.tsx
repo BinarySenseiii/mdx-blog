@@ -7,9 +7,7 @@ export const BlogPostPreview = (post: IFrontMatter) => {
       <ContentLink key={post.slug} href={`/posts/${post.slug}`}>
         <ContentLink.Title>{post.title}</ContentLink.Title>
 
-        <ContentLink.Meta>
-          <div>{post.date}</div>
-        </ContentLink.Meta>
+        <ContentLink.Meta>{post.date}</ContentLink.Meta>
 
         <ContentLink.Text>{post.summary}</ContentLink.Text>
       </ContentLink>
