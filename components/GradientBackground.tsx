@@ -1,5 +1,5 @@
 import React from 'react';
-import { useWindowScroll } from 'react-use';
+import { useWindowScroll } from '../hooks';
 
 const GradientBackground = () => {
   const { y } = useWindowScroll();
