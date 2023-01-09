@@ -1,10 +1,10 @@
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { BlogPostPreview } from '../components/BlogPostPreview';
-import { BLOG_DIR, getMetaData } from '../lib/md';
+import { BLOG_DIR, getData } from '../lib/md';
 import { IFrontMatter } from '../types/blog-post';
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = getMetaData(BLOG_DIR);
+  const posts = getData(BLOG_DIR);
 
   return {
     props: {

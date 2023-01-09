@@ -1,11 +1,12 @@
-import {GetStaticPaths, GetStaticProps, InferGetStaticPropsType} from 'next';
-import React from 'react';
-import {BLOG_DIR, getMetaData} from '../../lib/md';
-import {ParsedUrlQuery} from 'querystring';
+import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
 import Head from 'next/head';
+import { ParsedUrlQuery } from 'querystring';
+import React from 'react';
+import { BLOG_DIR, getData } from '../../lib/md';
 
 const PostDetailPage: React.FC = ({
   slug,
+  post,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
@@ -16,26 +17,28 @@ const PostDetailPage: React.FC = ({
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h1 role="heading">{slug}</h1>
+      <pre>{post.content}</pre>
     </>
   );
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const metaData = getMetaData(BLOG_DIR);
+  const metaData = getData(BLOG_DIR);
 
   return {
-    paths: metaData.map((data) => ({params: {slug: data.slug}})),
+    paths: metaData.map((data) => ({ params: { slug: data.slug } })),
     fallback: 'blocking',
   };
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const {slug} = context.params as ParsedUrlQuery;
+  const { slug } = context.params as ParsedUrlQuery;
+  const posts = getData(BLOG_DIR);
 
   return {
     props: {
       slug,
+      post: posts.find((post) => post.slug === slug),
     },
   };
 };

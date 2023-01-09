@@ -25,7 +25,7 @@ export function ContentLink({
 
 function Title({ children }: { children: React.ReactNode }) {
   return (
-    <h3 className="text-xl text-rose-100/90 transition duration-300 line-clamp-2 hover:text-rose-100/90">
+    <h3 className="text-xl text-rose-100/90 transition duration-300 line-clamp-3 hover:text-rose-100/90">
       {children}
     </h3>
   );
