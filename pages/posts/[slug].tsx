@@ -1,8 +1,13 @@
+/* eslint-disable react/no-children-prop */
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
 import Head from 'next/head';
 import { ParsedUrlQuery } from 'querystring';
 import React from 'react';
 import { BLOG_DIR, getData } from '../../lib/md';
+import Image from 'next/image';
+
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 const PostDetailPage: React.FC = ({
   slug,
@@ -17,7 +22,7 @@ const PostDetailPage: React.FC = ({
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <pre>{post.content}</pre>
+      <ReactMarkdown children={post.content} remarkPlugins={[remarkGfm]} />
     </>
   );
 };
