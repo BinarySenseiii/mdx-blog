@@ -19,7 +19,6 @@ import BackButton from '../../components/BackButton';
 const PostDetailPage: React.FC = ({
   post,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  console.log(post.coverImage);
   return (
     <>
       <Head>{/* <title>{post.meta.title}</title> */}</Head>
