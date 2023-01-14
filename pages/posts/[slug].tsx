@@ -8,6 +8,7 @@ import Image from 'next/image';
 
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import rehypePrism from 'rehype-prism-plus';
 
 const PostDetailPage: React.FC = ({
   slug,
@@ -22,7 +23,10 @@ const PostDetailPage: React.FC = ({
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <ReactMarkdown children={post.content} remarkPlugins={[remarkGfm]} />
+      <ReactMarkdown
+        children={post.content}
+        remarkPlugins={[remarkGfm, rehypePrism]}
+      />
     </>
   );
 };
