@@ -22,12 +22,16 @@ const PostDetailPage: React.FC = ({
   return (
     <>
       <Head>{/* <title>{post.meta.title}</title> */}</Head>
-      <div className="w-[200px]">
-        <BackButton path="/" text="Back to home" />
+      <div className="w-[200px] -mb-4">
+        <BackButton path="/" text="Back" />
       </div>
       <Image src={post.coverImage} alt={post.title} width={1703} height={980} />
       <main className="space-y-2">
-        <h1 className="text-3xl font-bold" role="heading" aria-level={1}>
+        <h1
+          className="text-2xl md:text-3xl font-bold"
+          role="heading"
+          aria-level={1}
+        >
           {post.title}
         </h1>
         <div className="flex items-center space-x-4">
