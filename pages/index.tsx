@@ -3,16 +3,6 @@ import { BlogPostPreview } from '../components/BlogPostPreview';
 import { BLOG_DIR, getData } from '../lib/md';
 import { IFrontMatter } from '../types/blog-post';
 
-export const getStaticProps: GetStaticProps = async () => {
-  const posts = getData(BLOG_DIR);
-
-  return {
-    props: {
-      posts,
-    },
-  };
-};
-
 export default function Home({
   posts,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
@@ -26,3 +16,13 @@ export default function Home({
     </>
   );
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  const posts = getData(BLOG_DIR);
+
+  return {
+    props: {
+      posts,
+    },
+  };
+};
