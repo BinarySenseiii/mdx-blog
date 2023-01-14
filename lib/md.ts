@@ -26,6 +26,7 @@ export const getData = (path: string): IFrontMatter[] => {
       tags: data.tags,
       date: data.date,
       summary: data.summary,
+      coverImage: data.coverImage,
       readTime: readingTime(content),
       slug: file.replace('.mdx', ''),
       content,
