@@ -1,16 +1,16 @@
 // double escape for commas and slashes
-const e = (str: string) => encodeURIComponent(encodeURIComponent(str))
+const e = (str: string) => encodeURIComponent(encodeURIComponent(str));
 
 export const createOgImage = ({
   title,
   meta,
 }: {
-  title: string
-  meta: string
+  title: string;
+  meta: string;
 }) =>
   [
     // ACCOUNT PREFIX
-    `https://res.cloudinary.com/delba/image/upload`,
+    `https://res.cloudinary.com/djk0fdvtu/image/upload/v1673720754/68985954_yfxtwu.jpg`,
     // Composed Image Transformations
     `w_1600,h_836,q_100`,
 
@@ -36,4 +36,4 @@ export const createOgImage = ({
 
     // BG
     `grain-gradient.png`,
-  ].join("/")
+  ].join('/');
